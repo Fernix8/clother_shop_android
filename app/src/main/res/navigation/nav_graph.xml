@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.example_android_pe.fragments.LoginFragment"
+        android:label="Login">
+        <action
+            android:id="@+id/action_login_to_main"
+            app:destination="@id/shopFragment" />
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.example_android_pe.fragments.MainFragment"
+        android:label="Main">
+        <action
+            android:id="@+id/action_main_to_login"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.example_android_pe.fragments.RegisterFragment"
+        android:label="Register">
+        <action
+            android:id="@+id/action_register_to_login"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="com.example.example_android_pe.fragments.ShopFragment"
+        android:label="Shop">
+        <action
+            android:id="@+id/action_shop_to_productDetail"
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_shop_to_cart"
+            app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/action_shop_to_login"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.example.example_android_pe.fragments.ProductDetailFragment"
+        android:label="Product Detail">
+        <action
+            android:id="@+id/action_productDetail_to_cart"
+            app:destination="@id/cartFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.example_android_pe.fragments.CartFragment"
+        android:label="Cart">
+        <action
+            android:id="@+id/action_cart_to_checkout"
+            app:destination="@id/checkoutFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.example.example_android_pe.fragments.CheckoutFragment"
+        android:label="Checkout">
+        <action
+            android:id="@+id/action_checkout_to_orderConfirmation"
+            app:destination="@id/orderConfirmationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/orderConfirmationFragment"
+        android:name="com.example.example_android_pe.fragments.OrderConfirmationFragment"
+        android:label="Order Confirmation">
+        <action
+            android:id="@+id/action_orderConfirmation_to_shop"
+            app:destination="@id/shopFragment" />
+    </fragment>
+</navigation>

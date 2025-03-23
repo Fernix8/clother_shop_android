@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Item Name"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/eItemName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Item Name" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/eItemPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Price"
+        android:inputType="numberDecimal"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Size"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/eItemSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Size" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quantity"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/eItemQuantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Quantity"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/btnAddItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Item" />
+
+    <Button
+        android:id="@+id/btnUpdateItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Item"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnDeleteItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Item"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</LinearLayout>
