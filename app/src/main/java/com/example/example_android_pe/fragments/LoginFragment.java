@@ -25,26 +25,21 @@ public class LoginFragment extends Fragment {
     private UsersViewModel usersViewModel;
     private SessionManager sessionManager;
     private ExecutorService executorService;
+    private View rootView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_login, container, false);
+        rootView = inflater.inflate(R.layout.fragment_login, container, false);
 
         // Initialize session manager
         sessionManager = new SessionManager(requireContext());
         executorService = Executors.newSingleThreadExecutor();
 
-        // Check if user is already logged in
-        if (sessionManager.isLoggedIn()) {
-            navigateBasedOnRole();
-            return view;
-        }
-
-        editUsername = view.findViewById(R.id.eUsername);
-        editPassword = view.findViewById(R.id.ePassword);
+        editUsername = rootView.findViewById(R.id.eUsername);
+        editPassword = rootView.findViewById(R.id.ePassword);
         usersViewModel = new ViewModelProvider(this).get(UsersViewModel.class);
 
-        Button btnLogin = view.findViewById(R.id.btnLogin);
+        Button btnLogin = rootView.findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(v -> {
             String username = editUsername.getText().toString().trim();
             String password = editPassword.getText().toString().trim();
@@ -69,7 +64,7 @@ public class LoginFragment extends Fragment {
                         sessionManager.createLoginSession(user.getId(), username, user.getRole());
 
                         // Navigate based on role
-                        navigateBasedOnRole();
+                        navigateBasedOnRole(v);
 
                         clearFields();
                         Toast.makeText(requireContext(), "Login successful", Toast.LENGTH_SHORT).show();
@@ -80,23 +75,33 @@ public class LoginFragment extends Fragment {
             });
         });
 
-        Button btnGoToRegister = view.findViewById(R.id.btnGoToRegister);
+        Button btnGoToRegister = rootView.findViewById(R.id.btnGoToRegister);
         btnGoToRegister.setOnClickListener(v -> {
             Navigation.findNavController(v).navigate(R.id.action_login_to_register);
         });
 
-        return view;
+        // Check if user is already logged in - do this after view is created
+        if (sessionManager.isLoggedIn()) {
+            // We need to post this to make sure the fragment is fully attached
+            rootView.post(() -> {
+                if (isAdded() && getView() != null) {
+                    navigateBasedOnRole(getView());
+                }
+            });
+        }
+
+        return rootView;
     }
 
-    private void navigateBasedOnRole() {
+    private void navigateBasedOnRole(View view) {
         if (sessionManager.isAdmin()) {
-            Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
+            Navigation.findNavController(view)
                     .navigate(R.id.action_login_to_adminDashboard);
         } else if (sessionManager.isSeller()) {
-            Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
+            Navigation.findNavController(view)
                     .navigate(R.id.action_login_to_sellerDashboard);
         } else {
-            Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
+            Navigation.findNavController(view)
                     .navigate(R.id.action_login_to_shop);
         }
     }

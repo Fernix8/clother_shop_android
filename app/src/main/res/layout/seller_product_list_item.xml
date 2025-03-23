@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/sellerProductImageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder_image" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp">
+
+            <TextView
+                android:id="@+id/sellerProductNameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Product Name"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/sellerProductPriceTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="$0.00"
+                android:textColor="@android:color/holo_blue_dark" />
+
+            <TextView
+                android:id="@+id/sellerProductSizeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Size: M" />
+
+            <TextView
+                android:id="@+id/sellerProductQuantityTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quantity: 10" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

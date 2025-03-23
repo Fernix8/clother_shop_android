@@ -9,11 +9,17 @@
         android:name="com.example.example_android_pe.fragments.LoginFragment"
         android:label="Login">
         <action
-            android:id="@+id/action_login_to_main"
+            android:id="@+id/action_login_to_shop"
             app:destination="@id/shopFragment" />
         <action
             android:id="@+id/action_login_to_register"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_login_to_adminDashboard"
+            app:destination="@id/adminDashboardFragment" />
+        <action
+            android:id="@+id/action_login_to_sellerDashboard"
+            app:destination="@id/sellerDashboardFragment" />
     </fragment>
 
     <fragment
@@ -47,6 +53,9 @@
         <action
             android:id="@+id/action_shop_to_login"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_shop_to_userProfile"
+            app:destination="@id/userProfileFragment" />
     </fragment>
 
     <fragment
@@ -83,5 +92,95 @@
         <action
             android:id="@+id/action_orderConfirmation_to_shop"
             app:destination="@id/shopFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.example.example_android_pe.fragments.UserProfileFragment"
+        android:label="User Profile">
+        <action
+            android:id="@+id/action_userProfile_to_login"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/adminDashboardFragment"
+        android:name="com.example.example_android_pe.fragments.AdminDashboardFragment"
+        android:label="Admin Dashboard">
+        <action
+            android:id="@+id/action_adminDashboard_to_login"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_adminDashboard_to_adminProducts"
+            app:destination="@id/adminProductsFragment" />
+        <action
+            android:id="@+id/action_adminDashboard_to_adminOrders"
+            app:destination="@id/adminOrdersFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/sellerDashboardFragment"
+        android:name="com.example.example_android_pe.fragments.SellerDashboardFragment"
+        android:label="Seller Dashboard">
+        <action
+            android:id="@+id/action_sellerDashboard_to_login"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_sellerDashboard_to_addProduct"
+            app:destination="@id/addProductFragment" />
+        <action
+            android:id="@+id/action_sellerDashboard_to_editProduct"
+            app:destination="@id/editProductFragment" />
+        <action
+            android:id="@+id/action_sellerDashboard_to_sellerOrders"
+            app:destination="@id/sellerOrdersFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addProductFragment"
+        android:name="com.example.example_android_pe.fragments.AddProductFragment"
+        android:label="Add Product">
+        <action
+            android:id="@+id/action_addProduct_to_sellerDashboard"
+            app:destination="@id/sellerDashboardFragment" />
+        <action
+            android:id="@+id/action_addProduct_to_login"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editProductFragment"
+        android:name="com.example.example_android_pe.fragments.EditProductFragment"
+        android:label="Edit Product">
+        <action
+            android:id="@+id/action_editProduct_to_sellerDashboard"
+            app:destination="@id/sellerDashboardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/adminProductsFragment"
+        android:name="com.example.example_android_pe.fragments.AdminProductsFragment"
+        android:label="Admin Products">
+        <action
+            android:id="@+id/action_adminProducts_to_adminDashboard"
+            app:destination="@id/adminDashboardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/adminOrdersFragment"
+        android:name="com.example.example_android_pe.fragments.AdminOrdersFragment"
+        android:label="Admin Orders">
+        <action
+            android:id="@+id/action_adminOrders_to_adminDashboard"
+            app:destination="@id/adminDashboardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/sellerOrdersFragment"
+        android:name="com.example.example_android_pe.fragments.SellerOrdersFragment"
+        android:label="Seller Orders">
+        <action
+            android:id="@+id/action_sellerOrders_to_sellerDashboard"
+            app:destination="@id/sellerDashboardFragment" />
     </fragment>
 </navigation>

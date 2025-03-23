@@ -9,9 +9,10 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.example_android_pe.R;
+import com.example.example_android_pe.utils.DataInitializer;
 
 public class MainActivity extends AppCompatActivity {
+    private DataInitializer dataInitializer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +25,23 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+
+        // Initialize sample data
+        dataInitializer = new DataInitializer(this);
+        dataInitializer.initializeData();
     }
 
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return navController.navigateUp() || super.onSupportNavigateUp();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (dataInitializer != null) {
+            dataInitializer.shutdown();
+        }
     }
 }

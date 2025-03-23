@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Admin Dashboard"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/totalUsersTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total Users: 0"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/totalProductsTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total Products: 0"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/totalOrdersTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total Orders: 0"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <EditText
+            android:id="@+id/searchUsersEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Search users" />
+
+        <Button
+            android:id="@+id/searchUsersButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Users"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/usersRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/viewProductsButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="View Products"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/viewOrdersButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="View Orders" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/adminLogoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:layout_marginTop="8dp" />
+</LinearLayout>
